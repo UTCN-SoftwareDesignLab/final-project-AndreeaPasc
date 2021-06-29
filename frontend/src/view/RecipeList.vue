@@ -29,6 +29,8 @@
 <script>
 import api from "../api";
 import RecipeDialog from "../components/RecipeDialog";
+import SockJS from "sockjs-client";
+import Stomp from "webstomp-client";
 export default {
   name: "RecipeList",
   components: { RecipeDialog },
@@ -65,6 +67,21 @@ export default {
     },
   },
   created() {
+    var socket = new SockJS("http://localhost:8088/api/websocket");
+    var stompClient = Stomp.over(socket);
+    stompClient.connect(
+        {},
+        // eslint-disable-next-line no-unused-vars
+        frame =>{
+
+          stompClient.subscribe("/api/recipes/messages", tick =>{
+            console.log(tick);
+            alert(JSON.parse(tick.body).content);
+          })
+
+          //var username = this.$store.getters["auth/getUsername"];
+        }
+    )
     this.refreshList();
   },
 };

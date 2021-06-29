@@ -63,7 +63,7 @@ export default {
             // eslint-disable-next-line no-unused-vars
             frame =>{
 
-              stompClient.send("/messages", "New Order has been placed")
+              stompClient.send("/messages", JSON.stringify({message: "New order has been placed"}))
 
               //var username = this.$store.getters["auth/getUsername"];
             }

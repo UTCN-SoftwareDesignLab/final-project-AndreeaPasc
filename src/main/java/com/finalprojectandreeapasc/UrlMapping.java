@@ -13,5 +13,7 @@ public class UrlMapping {
     public static final String USERS = API_PATH + "/users";
     public static final String CUSTOMERS = API_PATH + "/customers";
 
+    public static final String MESSAGE = "/messages";
+    public static final String SEND = RECIPES + MESSAGE;
     public static final String WEBSOCKET = API_PATH + "/websocket";
 }

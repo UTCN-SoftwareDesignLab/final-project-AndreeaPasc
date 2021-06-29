@@ -7,11 +7,14 @@ import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.util.HtmlUtils;
 
+import static com.finalprojectandreeapasc.UrlMapping.MESSAGE;
+import static com.finalprojectandreeapasc.UrlMapping.SEND;
+
 @Controller
 public class MessageController {
 
-    @MessageMapping("/messages")
-    @SendTo("/api/recipes/messages")
+    @MessageMapping(MESSAGE)
+    @SendTo(SEND)
     public ResponseDto getMessage(final MessageDto message) throws InterruptedException {
         Thread.sleep(1000);
 

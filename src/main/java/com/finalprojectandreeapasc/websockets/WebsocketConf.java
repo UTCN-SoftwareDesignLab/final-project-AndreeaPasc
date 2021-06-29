@@ -13,12 +13,14 @@ import static com.finalprojectandreeapasc.UrlMapping.*;
 public class WebsocketConf implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(final MessageBrokerRegistry registry){
-        registry.enableSimpleBroker(RECIPES);
-        registry.setApplicationDestinationPrefixes(CUSTOMERS);
+        registry.enableSimpleBroker(API_PATH);
+        //registry.setApplicationDestinationPrefixes(CUSTOMERS);
     }
 
     @Override
     public void registerStompEndpoints(final StompEndpointRegistry registry){
-        registry.addEndpoint(WEBSOCKET).withSockJS();
+        registry.addEndpoint(WEBSOCKET)
+                .setAllowedOriginPatterns("*")
+                .withSockJS();
     }
 }

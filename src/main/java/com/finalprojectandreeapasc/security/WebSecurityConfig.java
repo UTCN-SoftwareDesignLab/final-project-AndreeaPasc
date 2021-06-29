@@ -19,6 +19,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import static com.finalprojectandreeapasc.UrlMapping.AUTH;
+import static com.finalprojectandreeapasc.UrlMapping.WEBSOCKET;
 
 @Configuration
 @EnableWebSecurity
@@ -55,6 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers(AUTH + "/**").permitAll()
                 .antMatchers("/api/test/**").permitAll()
+                .antMatchers(WEBSOCKET + "/**").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
