@@ -19,6 +19,14 @@
         :items="recipes"
         :search="search"
     ></v-data-table>
+    <iframe
+        width="600"
+        height="450"
+        style="border:0"
+        loading="lazy"
+        allowfullscreen
+        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJUyN2aONHRkcRRFNd1oakVRs&key=AIzaSyBR8cxgxePm65q9HH1C7xas6yQPix1E9h4">
+    </iframe>
     <RecipeDialog
         :opened="dialogVisible"
         :recipe="selectedRecipe"

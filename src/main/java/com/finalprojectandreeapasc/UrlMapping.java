@@ -2,6 +2,7 @@ package com.finalprojectandreeapasc;
 
 public class UrlMapping {
     public static final String API_PATH = "/api";
+    public static final String MAP = "/geocode";
     public static final String RECIPES = API_PATH + "/recipes";
     public static final String ENTITY = "/{id}";
     public static final String EXPORT_REPORT = "/export/{type}";
