@@ -27,9 +27,12 @@ export default {
     opened: Boolean,
   },
   methods: {
+
+
   },
 
   computed: {
+
   },
 };
 </script>

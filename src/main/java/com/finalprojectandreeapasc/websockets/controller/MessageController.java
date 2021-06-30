@@ -1,4 +1,4 @@
-package com.finalprojectandreeapasc.websockets;
+package com.finalprojectandreeapasc.websockets.controller;
 
 import com.finalprojectandreeapasc.websockets.dto.MessageDto;
 import com.finalprojectandreeapasc.websockets.dto.ResponseDto;

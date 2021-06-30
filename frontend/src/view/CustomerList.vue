@@ -11,6 +11,8 @@
           hide-details
       ></v-text-field>
       <v-btn @click="order">Order</v-btn>
+      <input v-model= "message" placeholder="Email Here">
+      <v-btn @click="send">Send</v-btn>
     </v-card-title>
     <v-data-table
         :headers="headers"
@@ -39,6 +41,7 @@ export default {
     return {
       recipes: [],
       search: "",
+      message: "",
       headers: [
         {
           text: "Title",
@@ -54,7 +57,10 @@ export default {
     };
   },
   methods: {
-
+    send(){
+      api.customers.sendMail(this.message)
+          .then(() => this.$emit("refresh"));
+    },
     order(){
         var socket = new SockJS("http://localhost:8088/api/websocket");
         var stompClient = Stomp.over(socket);
