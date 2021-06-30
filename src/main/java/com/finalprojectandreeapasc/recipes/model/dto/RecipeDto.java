@@ -14,4 +14,5 @@ public class RecipeDto {
     private String title;
     private String ingredients;
     private Integer quantity;
+    private Double price;
 }

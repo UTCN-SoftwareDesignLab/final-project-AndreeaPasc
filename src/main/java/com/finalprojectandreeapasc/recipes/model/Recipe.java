@@ -25,4 +25,7 @@ public class Recipe {
 
     @Column
     private Integer quantity;
+
+    @Column
+    private Double price;
 }

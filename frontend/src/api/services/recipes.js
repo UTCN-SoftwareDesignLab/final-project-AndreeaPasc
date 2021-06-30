@@ -1,4 +1,5 @@
 import authHeader, { BASE_URL, HTTP } from "../http";
+import { saveAs } from 'file-saver';
 
 export default {
     allRecipes() {
@@ -29,6 +30,16 @@ export default {
                 return response.data;
             }
         );
+    },
+
+    download() {
+        return HTTP.get(BASE_URL + "/recipes/export", {headers: authHeader(), responseType: 'blob'}).then(
+            (response) => {
+                console.log(response);
+                let blob = new Blob([response.data], {type: "text/pdf"});
+                saveAs(blob, "PrettyPDF.pdf");
+            }
+        )
     },
 
 };

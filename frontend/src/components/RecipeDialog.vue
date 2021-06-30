@@ -13,6 +13,7 @@
           <v-text-field v-model="recipe.title" label="Title" />
           <v-text-field v-model="recipe.ingredients" label="Ingredients" />
           <v-text-field v-model="recipe.quantity" label="Quantity (g)" />
+          <v-text-field v-model="recipe.price" label="Price" />
         </v-form>
         <v-card-actions>
           <v-btn @click="persist">
@@ -41,6 +42,7 @@ export default {
               title: this.recipe.title,
               ingredients: this.recipe.ingredients,
               quantity: this.recipe.quantity,
+              price: this.recipe.price,
             })
             .then(() => this.$emit("refresh"));
       } else {
@@ -50,6 +52,7 @@ export default {
               title: this.recipe.title,
               ingredients: this.recipe.ingredients,
               quantity: this.recipe.quantity,
+              price: this.recipe.price,
             })
             .then(() => this.$emit("refresh"));
       }

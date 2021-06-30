@@ -40,6 +40,7 @@ public class RecipeService {
         actRecipe.setIngredients(recipe.getIngredients());
         actRecipe.setTitle(recipe.getTitle());
         actRecipe.setQuantity(recipe.getQuantity());
+        actRecipe.setPrice(recipe.getPrice());
         return recipeMapper.toDTO(
                 recipeRepository.save(actRecipe)
         );

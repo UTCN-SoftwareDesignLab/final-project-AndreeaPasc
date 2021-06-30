@@ -4,6 +4,8 @@ import com.finalprojectandreeapasc.recipes.model.dto.RecipeDto;
 import com.finalprojectandreeapasc.user.dto.UserListDTO;
 import com.finalprojectandreeapasc.user.dto.UserMinimalDTO;
 import com.finalprojectandreeapasc.user.mapper.UserMapper;
+import com.finalprojectandreeapasc.user.model.ERole;
+import com.finalprojectandreeapasc.user.model.Role;
 import com.finalprojectandreeapasc.user.model.User;
 import com.finalprojectandreeapasc.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -56,6 +58,9 @@ public class UserService {
         User actUser = findById(id);
         actUser.setUsername(user.getName());
         actUser.setEmail(user.getEmail());
+//        actUser.setRoles(user.getRoles().stream()
+//                .map(role -> Role.builder().name(ERole.valueOf(role)).build())
+//                .collect(Collectors.toSet()));
         return userMapper.toDTO(
                 userRepository.save(actUser)
         );

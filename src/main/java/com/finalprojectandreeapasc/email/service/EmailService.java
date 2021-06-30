@@ -22,8 +22,6 @@ public class EmailService {
 
         String decode = java.net.URLDecoder.decode(email, StandardCharsets.UTF_8.name()).replace("=", "");
 
-
-
         Properties prop = new Properties();
         prop.put("mail.smtp.auth", true);
         prop.put("mail.smtp.starttls.enable", "true");

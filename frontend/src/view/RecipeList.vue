@@ -11,6 +11,8 @@
           hide-details
       ></v-text-field>
       <v-btn @click="addRecipe">Add Recipe</v-btn>
+      <v-btn @click="downloadRecipes">Download</v-btn>
+
     </v-card-title>
     <v-data-table
         :headers="headers"
@@ -47,12 +49,18 @@ export default {
         },
         { text: "Ingredients", value: "ingredients" },
         { text: "Quantity (g)", value: "quantity" },
+        { text: "Price", value: "price" },
       ],
       dialogVisible: false,
       selectedRecipe: {},
     };
   },
   methods: {
+
+    downloadRecipes(){
+      api.recipes.download();
+    },
+
     editRecipe(recipe) {
       this.selectedRecipe = recipe;
       this.dialogVisible = true;

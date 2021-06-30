@@ -59,6 +59,7 @@ export default {
         },
         { text: "Ingredients", value: "ingredients" },
         { text: "Quantity (g)", value: "quantity" },
+        { text: "Price", value: "price" },
       ],
       dialogVisible: false,
       selectedRecipe: {},

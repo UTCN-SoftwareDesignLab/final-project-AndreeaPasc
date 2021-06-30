@@ -68,14 +68,9 @@ public class Bootstrapper implements ApplicationListener<ApplicationReadyEvent> 
 
             recipeService.create(RecipeDto.builder()
                     .title("Pancakes")
-                    .ingredients("1 cup all-purpose flour.\n" +
-                            "2 tablespoons white sugar.\n" +
-                            "2 teaspoons baking powder.\n" +
-                            "1 teaspoon salt.\n" +
-                            "1 egg, beaten.\n" +
-                            "1 cup milk.\n" +
-                            "2 tablespoons vegetable oil.\n")
+                    .ingredients("all-purpose flour, white sugar, baking powder, salt, egg, milk, vegetable oil.\n")
                     .quantity(100)
+                    .price(10.0)
                     .build());
         }
     }

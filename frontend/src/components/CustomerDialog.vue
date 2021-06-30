@@ -10,6 +10,7 @@
           <v-text-field v-model="recipe.title" label="Title" />
           <v-text-field v-model="recipe.ingredients" label="Ingredients" />
           <v-text-field v-model="recipe.quantity" label="Quantity (g)" />
+          <v-text-field v-model="recipe.price" label="Price" />
         </v-form>
         <v-card-actions>
         </v-card-actions>
@@ -27,8 +28,6 @@ export default {
     opened: Boolean,
   },
   methods: {
-
-
   },
 
   computed: {
