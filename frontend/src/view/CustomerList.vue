@@ -10,7 +10,6 @@
           single-line
           hide-details
       ></v-text-field>
-      <v-btn @click="order">Order</v-btn>
       <input v-model= "message" placeholder="Email Here">
       <v-btn @click="send">Send</v-btn>
     </v-card-title>
@@ -37,7 +36,7 @@
           :cancel-url="cancelURL"
           @loading="v => loading = v"
       />
-      <button @click="submit">Checkout</button>
+      <v-btn @click="submit">Checkout</v-btn>
     </div>
     <RecipeDialog
         :opened="dialogVisible"
@@ -93,6 +92,7 @@ export default {
     submit() {
       // You will be redirected to Stripe's secure checkout page
       this.$refs.checkoutRef.redirectToCheckout();
+      return this.order()
     },
 
     send(){
