@@ -1,12 +1,10 @@
 package com.finalprojectandreeapasc.api.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.finalprojectandreeapasc.FinalProjectAndreeaPascApplication;
 import com.finalprojectandreeapasc.api.GeocodeResult;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.ResponseBody;
-import org.springframework.boot.SpringApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;

@@ -27,6 +27,18 @@
         allowfullscreen
         src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJUyN2aONHRkcRRFNd1oakVRs&key=AIzaSyBR8cxgxePm65q9HH1C7xas6yQPix1E9h4">
     </iframe>
+    <div>
+      <stripe-checkout
+          ref="checkoutRef"
+          mode="payment"
+          :pk="publishableKey"
+          :line-items="lineItems"
+          :success-url="successURL"
+          :cancel-url="cancelURL"
+          @loading="v => loading = v"
+      />
+      <button @click="submit">Checkout</button>
+    </div>
     <RecipeDialog
         :opened="dialogVisible"
         :recipe="selectedRecipe"
@@ -41,11 +53,13 @@ import RecipeDialog from "../components/RecipeDialog";
 import SockJS from "sockjs-client";
 import Stomp from "webstomp-client";
 import router from "../router";
+import { StripeCheckout } from '@vue-stripe/vue-stripe';
 
 export default {
   name: "RecipeList",
-  components: { RecipeDialog },
+  components: { RecipeDialog, StripeCheckout },
   data() {
+    this.publishableKey = "pk_test_51J89KNBjLDxLADXyJgvbRCtn8OVS587AqYg2Dtor1Y298N47W440PG2BYXwQt5eWgHkZRLeScpk7q3LHM8TfbRuC00PiKiXPSG";
     return {
       recipes: [],
       search: "",
@@ -61,11 +75,26 @@ export default {
         { text: "Quantity (g)", value: "quantity" },
         { text: "Price", value: "price" },
       ],
+      loading: false,
+      lineItems: [
+        {
+          price: "price_1J8IriBjLDxLADXyvMukh1TA", // The id of the one-time price you created in your Stripe dashboard
+          quantity: 1,
+        },
+      ],
+      successURL: 'https://vuestripe.com/stripe-checkout/one-time-payment/',
+      cancelURL: 'https://vuestripe.com/stripe-checkout/one-time-payment/',
       dialogVisible: false,
       selectedRecipe: {},
     };
   },
   methods: {
+
+    submit() {
+      // You will be redirected to Stripe's secure checkout page
+      this.$refs.checkoutRef.redirectToCheckout();
+    },
+
     send(){
       api.customers.sendMail(this.message)
           .then(() => this.$emit("refresh"));
@@ -95,6 +124,7 @@ export default {
       this.recipes = await api.recipes.allRecipes();
     },
   },
+
   created() {
     this.refreshList();
   },

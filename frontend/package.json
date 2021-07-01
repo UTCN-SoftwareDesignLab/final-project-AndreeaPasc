@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@progress/kendo-vue-dropdowns": "^2.1.5",
+    "@vue-stripe/vue-stripe": "^4.2.5",
     "axios": "0.18.1",
     "core-js": "^3.6.5",
     "dom7": "^3.0.0",
@@ -16,6 +17,7 @@
     "material-design-icons-iconfont": "5.0.1",
     "pubnub-vue": "^1.0.1",
     "sockjs-client": "^1.5.1",
+    "stripe": "^8.159.0",
     "vue": "^2.6.11",
     "vue-advanced-chat": "^0.8.5",
     "vue-quick-chat": "^1.2.8",

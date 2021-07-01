@@ -49,7 +49,8 @@ dependencies {
 
     implementation 'com.squareup.okhttp3:okhttp:3.14.6'
     implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '2.0.1'
-
+    implementation "com.stripe:stripe-java:20.61.0"
+    implementation "com.sparkjava:spark-core:2.8.0"
 }
 
 test {
