@@ -7,6 +7,7 @@ public class UrlMapping {
     public static final String ENTITY = "/{id}";
     public static final String EXPORT_REPORT = RECIPES + "/export";
 
+    public static final String CHECKOUT = "/create-checkout-session";
     public static final String AUTH = API_PATH + "/auth";
     public static final String SIGN_IN = "/sign-in";
     public static final String SIGN_UP = "/sign-up";

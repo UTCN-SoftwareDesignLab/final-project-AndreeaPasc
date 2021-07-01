@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.finalprojectandreeapasc.UrlMapping.CHECKOUT;
 import static com.finalprojectandreeapasc.UrlMapping.EXPORT_REPORT;
 
 @RestController
-@RequestMapping("/create-checkout-session")
+@RequestMapping(CHECKOUT)
 @RequiredArgsConstructor
 public class PaymentController {
 

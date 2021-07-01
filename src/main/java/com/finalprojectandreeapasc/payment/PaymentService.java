@@ -12,6 +12,7 @@ import com.stripe.param.checkout.SessionCreateParams;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.finalprojectandreeapasc.UrlMapping.CHECKOUT;
 import static spark.Spark.*;
 
 @Service
@@ -27,7 +28,7 @@ public class PaymentService {
         staticFiles.externalLocation(
                 Paths.get("").toAbsolutePath().toString());
 
-        post("/create-checkout-session", (request, response) -> {
+        post(CHECKOUT, (request, response) -> {
 
             final String YOUR_DOMAIN = "http://localhost:8082/checkout";
             SessionCreateParams params =
